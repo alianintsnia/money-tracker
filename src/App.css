@@ -38,22 +38,27 @@
 }
 
 body, .main-bg {
-  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+  background: #e0f2fe;
   min-height: 100vh;
 }
 
+.saldo-angka {
+  color: #fff !important;
+}
+
 .title-gradient {
-  background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
+  background: none;
+  color: inherit;
   font-weight: 700;
   letter-spacing: 2px;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  text-fill-color: unset;
 }
 
 .saldo-card {
-  background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+  background: #2563eb;
   color: white;
   border: none;
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
@@ -65,12 +70,12 @@ body, .main-bg {
 }
 
 .btn-primary {
-  background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+  background: #2563eb;
   border: none;
 }
 
 .btn-danger {
-  background: linear-gradient(90deg, #f43f5e 0%, #f59e42 100%);
+  background: #f43f5e;
   border: none;
 }
 
@@ -88,6 +93,7 @@ body, .main-bg {
 
 input, select, .react-datepicker-wrapper input {
   border-radius: 8px !important;
+  background: #fff !important;
 }
 
 .table-success {
@@ -96,4 +102,40 @@ input, select, .react-datepicker-wrapper input {
 
 .table-danger {
   background-color: #ffeaea !important;
+}
+
+.card-statistik {
+  min-height: 550px;
+}
+
+.card-title.statistik-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.tanggal-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tanggal-row .form-label {
+  margin-bottom: 0 !important;
+  padding-left: 8px;
+  min-width: 70px;
+}
+
+.custom-date-input {
+  margin-top: 0;
+  flex: 1;
+}
+
+.custom-date-input input {
+  cursor: pointer;
+  padding-left: 36px !important;
+  background: #fff !important;
+}
+
+.form-label {
+  margin-bottom: 10px !important;
 }

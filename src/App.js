@@ -1,13 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
-import { FaMoneyBillWave, FaPlusCircle, FaTrashAlt } from 'react-icons/fa';
+import { FaMoneyBillWave, FaPlusCircle, FaTrashAlt, FaRegCalendarAlt } from 'react-icons/fa';
 import './App.css';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
+
+// Custom input for DatePicker with calendar icon inside
+const CustomDateInput = forwardRef(({ value, onClick }, ref) => (
+  <div className="custom-date-input" onClick={onClick} ref={ref} style={{position: 'relative', width: '100%'}}>
+    <input
+      type="text"
+      className="form-control"
+      value={value}
+      readOnly
+      style={{paddingRight: 36}}
+    />
+    <FaRegCalendarAlt style={{
+      position: 'absolute',
+      right: 12,
+      top: '50%',
+      transform: 'translateY(-50%)',
+      color: '#2563eb',
+      pointerEvents: 'none',
+      fontSize: 18
+    }} />
+  </div>
+));
 
 function App() {
   const [transactions, setTransactions] = useState([]);
@@ -76,14 +98,14 @@ function App() {
     <div className="main-bg">
       <div className="container mt-5">
         <h1 className="text-center mb-4 title-gradient">
-          <FaMoneyBillWave style={{marginRight:8}} /> Money Tracker
+          <FaMoneyBillWave style={{marginRight:8, color:'#22c55e'}} /> Money Tracker
         </h1>
         <div className="row">
           <div className="col-md-6">
             <div className="card mb-4 saldo-card">
               <div className="card-body">
                 <h5 className="card-title">Saldo Saat Ini</h5>
-                <h2 className={balance >= 0 ? 'text-success' : 'text-danger'}>
+                <h2 className="saldo-angka">
                   Rp{balance.toLocaleString()}
                 </h2>
               </div>
@@ -123,13 +145,13 @@ function App() {
                       <option value="expense">Pengeluaran</option>
                     </select>
                   </div>
-                  <div className="mb-3">
+                  <div className="mb-3 tanggal-row">
                     <label className="form-label">Tanggal</label>
-                    <DatePicker 
-                      selected={date} 
-                      onChange={(date) => setDate(date)} 
-                      className="form-control"
+                    <DatePicker
+                      selected={date}
+                      onChange={(date) => setDate(date)}
                       dateFormat="dd/MM/yyyy"
+                      customInput={<CustomDateInput />}
                     />
                   </div>
                   <button type="submit" className="btn btn-primary w-100">Simpan</button>
@@ -138,10 +160,10 @@ function App() {
             </div>
           </div>
           <div className="col-md-6">
-            <div className="card mb-4">
+            <div className="card mb-4 card-statistik">
               <div className="card-body">
-                <h5 className="card-title">Statistik</h5>
-                <div style={{ height: '300px' }}>
+                <h5 className="card-title statistik-title">Statistik</h5>
+                <div style={{ height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Pie data={data} />
                 </div>
               </div>
