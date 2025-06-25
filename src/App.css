@@ -36,3 +36,64 @@
     transform: rotate(360deg);
   }
 }
+
+body, .main-bg {
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+  min-height: 100vh;
+}
+
+.title-gradient {
+  background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.saldo-card {
+  background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.card {
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+  border: none;
+}
+
+.btn-danger {
+  background: linear-gradient(90deg, #f43f5e 0%, #f59e42 100%);
+  border: none;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
+.text-success {
+  color: #22c55e !important;
+}
+
+.text-danger {
+  color: #ef4444 !important;
+}
+
+input, select, .react-datepicker-wrapper input {
+  border-radius: 8px !important;
+}
+
+.table-success {
+  background-color: #e0ffe6 !important;
+}
+
+.table-danger {
+  background-color: #ffeaea !important;
+}
